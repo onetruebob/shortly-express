@@ -33,6 +33,13 @@ app.get('/', checkUser, function(req, res) {
   res.render('index');
 });
 
+app.get('/logout', function(req, res){
+  if (req.session.user){
+    req.session.user = null;
+  }
+  res.redirect('/');
+});
+
 app.get('/create', checkUser, function(req, res) {
   res.render('index');
 });
